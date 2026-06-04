@@ -1,6 +1,6 @@
 # --- Guidance / AI assistant files (local only) ---
 CLAUDE.md
-docs/DESIGN.md
+docs/
 
 # --- Python ---
 __pycache__/
