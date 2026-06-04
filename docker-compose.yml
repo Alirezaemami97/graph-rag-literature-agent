@@ -1,0 +1,19 @@
+services:
+  neo4j:
+    image: neo4j:5.20-community
+    ports:
+      - "7474:7474"   # Neo4j Browser UI
+      - "7687:7687"   # Bolt protocol (used by our Python driver)
+    environment:
+      NEO4J_AUTH: neo4j/litagent-dev   # matches .env.example default
+      NEO4J_PLUGINS: '["apoc"]'        # APOC utilities — useful for bulk loads
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: ["CMD", "neo4j", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  neo4j_data:

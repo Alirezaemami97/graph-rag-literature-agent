@@ -1,0 +1,20 @@
+ingestion:
+  topic: "retrieval-augmented generation"   # OpenAlex concept to search
+  max_papers: 300                            # total papers to fetch
+  page_size: 200                             # OpenAlex results per page
+  raw_output_path: "data/raw/papers.jsonl"  # checkpoint before embedding
+
+chunking:
+  chunk_size: 512       # characters (not tokens) — RecursiveCharacterTextSplitter default
+  chunk_overlap: 64     # overlap between consecutive chunks
+
+embedding:
+  model: "text-embedding-3-small"           # Azure OpenAI deployment name
+  batch_size: 100                           # chunks per embed API call
+
+chroma:
+  collection_name: "papers"
+  persist_directory: "chroma_db"           # local embedded mode; switch to server in M6
+
+neo4j:
+  database: "neo4j"                        # default Neo4j database name

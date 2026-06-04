@@ -1,0 +1,39 @@
+# --- Guidance / AI assistant files (local only) ---
+CLAUDE.md
+docs/DESIGN.md
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+
+# --- Data (raw downloads are not committed — too large) ---
+data/raw/
+
+# --- Chroma local storage ---
+chroma_db/
+*.chroma
+
+# --- Secrets ---
+.env
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- OS / editor noise ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
