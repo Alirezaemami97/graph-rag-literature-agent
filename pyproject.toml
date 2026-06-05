@@ -16,6 +16,7 @@ neo4j = "^5.20"
 openai = "^1.30"
 langchain-text-splitters = "^0.2"
 tenacity = "^8.3"
+rank-bm25 = "0.2.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2"

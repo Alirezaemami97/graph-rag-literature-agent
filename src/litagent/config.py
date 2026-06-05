@@ -32,12 +32,22 @@ class Neo4jConfig(BaseModel):
     database: str
 
 
+class RetrievalConfig(BaseModel):
+    vector_top_k: int = Field(gt=0)
+    bm25_top_k: int = Field(gt=0)
+    graph_top_k: int = Field(gt=0)
+    graph_hops: int = Field(ge=1, le=3)
+    final_top_k: int = Field(gt=0)
+    rrf_k: int = Field(gt=0)
+
+
 class Config(BaseModel):
     ingestion: IngestionConfig
     chunking: ChunkingConfig
     embedding: EmbeddingConfig
     chroma: ChromaConfig
     neo4j: Neo4jConfig
+    retrieval: RetrievalConfig
 
 
 def load_config(path: str | Path = "config/config.yaml") -> Config:

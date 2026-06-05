@@ -18,3 +18,11 @@ chroma:
 
 neo4j:
   database: "neo4j"                        # default Neo4j database name
+
+retrieval:
+  vector_top_k: 20      # Chroma candidates before fusion
+  bm25_top_k: 20        # BM25 candidates before fusion
+  graph_top_k: 10       # papers returned by graph expansion
+  graph_hops: 2         # citation hops (1 = direct cites, 2 = cites-of-cites)
+  final_top_k: 5        # results handed to the agent — fits context window budget
+  rrf_k: 60             # RRF constant (empirically validated default)
