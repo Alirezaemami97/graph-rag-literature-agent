@@ -41,6 +41,13 @@ class RetrievalConfig(BaseModel):
     rrf_k: int = Field(gt=0)
 
 
+class AgentConfig(BaseModel):
+    model: str
+    temperature: float = Field(ge=0.0, le=2.0)
+    max_iterations: int = Field(gt=0)
+    system_prompt_path: str
+
+
 class Config(BaseModel):
     ingestion: IngestionConfig
     chunking: ChunkingConfig
@@ -48,6 +55,7 @@ class Config(BaseModel):
     chroma: ChromaConfig
     neo4j: Neo4jConfig
     retrieval: RetrievalConfig
+    agent: AgentConfig
 
 
 def load_config(path: str | Path = "config/config.yaml") -> Config:

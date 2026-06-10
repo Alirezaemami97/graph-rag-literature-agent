@@ -26,3 +26,9 @@ retrieval:
   graph_hops: 2         # citation hops (1 = direct cites, 2 = cites-of-cites)
   final_top_k: 5        # results handed to the agent — fits context window budget
   rrf_k: 60             # RRF constant (empirically validated default)
+
+agent:
+  model: "gpt-4o"                            # Azure chat deployment name
+  temperature: 0.0                           # deterministic tool calls
+  max_iterations: 10                         # safety ceiling on the ReAct loop
+  system_prompt_path: "prompts/system.txt"
